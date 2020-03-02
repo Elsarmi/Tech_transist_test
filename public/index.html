@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.techtransit.com/mission.courses/coursesData.js"></script>
+</head>
+<body>
+    <button onclick="testRequest()">
+        Populate courses
+    </button>
+    <script>
+        var courses = window._courses;
+        function testRequest()
+        {
+            var oReq = new XMLHttpRequest();
+            function reqListener ()
+            {
+                console.log(this.responseText);
+            }
+            oReq.addEventListener("load", reqListener);
+            oReq.open("POST", "http://localhost:3000/populate", true);
+            oReq.setRequestHeader('Content-type', "application/x-www-form-urlencoded");
+            //application/jsonapplication/x-www-form-urlencoded
+            //oReq.send(JSON.stringify(courses));
+            oReq.send(courses);
+        }
+    </script>
+</body>
+</html>

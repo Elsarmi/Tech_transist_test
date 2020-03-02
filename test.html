@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="https://www.techtransit.com/mission.courses/coursesData.js"></script>
+</head>
+<body>
+    <button id="popuCourses">Populate Courses</button>
+    <script>
+        const btn_popuCourses = document.querySelector('#popuCourses');
+        btn_popuCourses.addEventListener('click', (e) => {
+            e.preventDefault();
+            var courses = window._courses;
+            //var oReq = new XMLHttpRequest.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            var oReq = new XMLHttpRequest;
+            oReq.open("POST", 'localhost:3000/populate');
+            // retrieve data unprocessed as a binary string
+            //oReq.overrideMimeType("text/plain; charset=x-user-defined");
+            oReq.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            oReq.send(JSON.stringify(courses));
+        })
+    </script>
+</body>
+</html>

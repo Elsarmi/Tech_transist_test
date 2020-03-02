@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="testRequest()">
+        Click on me
+    </button>
+    <script>
+        function testRequest(){
+            var oReq = new XMLHttpRequest();
+            function reqListener () {
+                console.log(this.responseText);
+            }
+            oReq.addEventListener("load", reqListener);
+            oReq.open("GET", "http://localhost:3000/test");
+            oReq.setRequestHeader("Content-Type", "Test-Custom-Header");
+            oReq.send();
+        }
+    </script>
+</body>
+</html>

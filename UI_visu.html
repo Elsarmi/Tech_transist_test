@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>TechTransit Test</title>
+    </head>
+    <body>
+        <h1>Tech Transit Course Catalog</h1><br>
+
+        <h2>Lista de Productos Terminados:</h2>
+        <ul id="courseCatalog"></ul>
+    
+        <table style="width: 30%;">
+            <!--Falta guardar el valor de cada Slider-->
+            <tr>
+                <th>Filters Credits at least 7 Credits
+                    <div class="slidecontainer">
+                        <input type="range" min="7" max="100" value="10">
+                    </div>
+                </th>
+                <th>Stars at least 1 stars
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="5" value="1" oninput=" document.getElementById('vstars').innerHTML = this.value"/>
+                        <label id="vstars"></label>
+                    </div>
+                </th>
+                <th>Cost at least 23 dollars
+                    <div class="slidecontainer">
+                        <input type="range" min="0" max="100" value="20">
+                    </div>
+                </th>
+            </tr>
+        </table>
+        <script type="text/javascript" src="https://www.techtransit.com/mission.courses/coursesData.js"></script>
+    </body>
+</html>
